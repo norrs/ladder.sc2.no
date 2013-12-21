@@ -18,5 +18,8 @@ Archives
 
 It looked like this:
 
+http://sc2ladder.norrs.no/
 http://web.archive.org/web/20100831110001/http://ladder.sc2.no/
-Sadly the graph layout isn't archived properly. 
+
+
+And the site is horrible slow, the SQL query should really have been memcached ;) 
