@@ -1,0 +1,127 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>StarCraft Norge Ladder</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="/css/sc2ladder.css" rel="stylesheet" type="text/css" />
+<link href="/css/smoothness/jquery-ui-1.8.4.custom.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="/js/jquery-1.4.2.min.js"></script>
+<script type="text/javascript" src="/js/jquery.qtip.min.js"></script>
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-6568256-2']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+</head>
+<body>
+
+<div id="wrapper">
+  <div id="header">
+  	<h1>Ladder</h1>
+  	<div id="menu">
+    	<dl>
+        	<dt>Spilltype</dt>
+            <dd>
+            	<a href="/no/1">1v1</a>
+                <a href="/no/2">2v2</a>
+                <a href="/no/3">3v3</a>
+                <a href="/no/4">4v4</a>
+            </dd>
+        </dl>
+        
+	<dl>
+		<dt>Betagraf</dt>
+	    <dd>
+		<a href="/graphs/no/1">1v1</a>
+	    </dd>
+	</dl>
+    <dl>
+        <dt>Achivements</dt>
+        <dd>
+        <a href="/no/achievements">Achievements</a>
+        </dd>
+    </dl>
+        
+        <dl class="faq">
+        	<dt><a href="/faq">FAQ</a></dt>
+        </dl>
+        <dl class="faq">
+            
+            <dt><a href="#">
+                            % if (crawling):
+                            <img src="/gfx/green.png" alt="Crawler-status" width="24px" height="24px" style="border:none;padding-bottom: 10px" />
+                            % else:
+                            <img src="/gfx/red.png" alt="Crawler-status" width="24px" height="24px" style="border:none;padding-bottom: 10px" />
+                            % endif
+
+            </a></dt>
+        </dl>
+    </div><!-- menu end -->
+  </div><!-- header end -->
+
+
+<div id="content">
+ <p style="font-size: 14pt">Se <a href="http://bugtracker.sc2.no/projects/laddersc2no/issues">her</a> for ting jeg jobber på!</p>
+	<table id="ladder" cellspacing="0"> 
+		<thead> 
+			<tr class="thead"> 
+				<th class="nrank"><img src="/gfx/no.gif" width="25" height="18" alt="NO" /></th> 
+				<th class="player">Player</th> 
+				<th class="ap">Poeng</th> 
+                <!--<th class="age">Sist oppdatert</th>-->
+			</tr> 
+		</thead> 
+		<tbody id="ladderdata"> 
+            <% counter=1 %>
+	    % for player in data:
+                % if (counter % 2 == 0):
+                    <tr class="par">
+                % else:
+		    <tr>
+                % endif 
+	          <td class="nrank">${player['nrank']}</td>\
+	          <td class="player">${player['player']}</td>\
+	          <td class="ap">${player['ap']}</td>\
+		% if (counter % 50 == 0):
+			<tr class="thead"> 
+				<th class="nrank"><img src="/gfx/no.gif" width="25" height="18" alt="NO" /></th> 
+				<th class="player">Player</th> 
+				<th class="ap">Poeng</th> 
+                <!--<th class="age">Sist oppdatert</th>-->
+			</tr> 
+		% endif
+                <% counter = counter + 1 %>
+	    % endfor
+		</tbody> 
+	</table> 
+</div>
+<div id="footer">
+&copy; 2010 <a href="http://www.roysindre.no">Roy Sindre Norangshol</a> (Rockj) for <a href="http://sc2.no">StarCraft Norge</a>. Credits to <a href="http://www.arzmir.net">René Räisänen</a> (Arzmir) for styles.<br />
+Data provided by <a href="http://sc2ranks.com">SC2Ranks.com</a>. 
+SC2 Rankings is not endorsed by or affiliated with Blizzard Entertainment.
+</div> 
+   <!-- boxes for rounded corners -->
+    <div id="top">
+        <b class="b5"></b>
+        <b class="b4"></b>
+        <b class="b3"></b>
+        <b class="b2"></b>
+        <b class="b1"></b>
+    </div>
+    <div id="bot">
+        <b class="b1"></b>
+        <b class="b2"></b>
+        <b class="b3"></b>
+        <b class="b4"></b>
+        <b class="b5"></b>
+    </div>
+    <div id="feedback"><a href="http://bugtracker.sc2.no" ></a></div>
+</div>
+</body>
+</html>

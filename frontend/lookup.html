@@ -1,0 +1,38 @@
+	<p>${bracket}vs${bracket}</p>
+	<table id="ladder"> 
+		<thead> 
+			<tr> 
+				<th class="nrank">Rank i Norge</th> 
+				<th class="eurank">Rank i Europa</th> 
+				<th class="players">Spiller(e)</th> 
+				<th class="points">Poeng</th> 
+				<th class="wins">Vinn</th> 
+				<th class="losses">Tap</th> 
+				<th class="ratio">Vinn %</th> 
+			</tr> 
+		</thead> 
+		<tbody id="ladderdata"> 
+            <% counter=1 %>
+	    % for team in data:
+                % if (counter % 2 == 0):
+                    <tr class="par">
+                % else:
+		    <tr>
+                % endif 
+	          <td class="nrank">${team['nrank']}</td>\
+	          <td class="eurank">${team['eurank']}</td>\
+	          <td class="players">
+			% for nick,bnet in team['players']:
+                              <a href="http://sc2ranks.com/char/eu/${bnet}/${nick}/">${nick}</a> 
+                        % endfor
+                        (<a href ="http://sc2ranks.com/div/${team['divisionid']}">${team['league']} #${team['divisionrank']}</a>)
+                  </td>\
+	          <td class="points">${team['points']}</td>\
+	          <td class="wins">${team['wins']}</td>\
+	          <td class="losses">${team['losses']}</td>\
+		  <td class="ratio">${team['wins']*100/(team['wins']+team['losses'])}%</td>\
+		</tr>
+                <% counter = counter + 1 %>
+	    % endfor
+		</tbody> 
+	</table> 

@@ -1,0 +1,58 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>StarCraft Norge Ladder</title>
+<link href="/css/sc2ladder.css" rel="stylesheet" type="text/css" />
+<link href="/css/smoothness/jquery-ui-1.8.4.custom.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="/js/jquery-1.4.2.min.js"></script>
+<script type="text/javascript" src="/js/jquery-ui-1.8.4.custom.min.js"></script>
+<script type="text/javascript">
+</script>
+</head>
+<body>
+<noscript>
+	Please enable JavaScript to view this page.
+</noscript>
+<div id="wrapper">
+<h1>StarCraft Norge Ladder</h1>
+<ul id="main-nav">
+        <li><a href="/no/1"><span>1vs1</span></a></li>
+        <li><a href="/no/2"><span>2vs2</span></a></li>
+        <li><a href="/no/3"><span>3vs3</span></a></li>
+        <li><a href="/no/4"><span>4vs4</span></a></li>
+</ul>
+<div id="content">
+
+% if status:
+  <strong>${status}</strong>
+% endif
+<p>
+Eksempel på nick : Rockj<br />
+Eksempel på character code: 234<br />
+Mao Rockj.234. Dette er det som kreves for å legge til hverandre som venn ingame i SC2. Character code finner du ved å holde musepekeren over portrettet ditt ingame i menyen!</p>
+<p>Skriver du feil nick.character_code er det din egen feil om du ikke blir videreført opp i brackets! 128 første på denne listen er med i turneringen</p>
+<form action="/cup" method="post"> 
+Nick: <input type="text" name="nick" size="30" />
+Character Code <input type="text" name="uc" size="30" />
+<input type="submit" value="Registrer" /> <input type="reset" />
+</form>
+<div>
+% if data:
+<ul>
+     <% counter=1 %>
+     % for (nick,id,delta) in data:
+        <li>#${counter} : ${nick}.${id}</li>
+        <% counter = counter + 1 %>      
+     % endfor
+</ul>
+% endif
+</div>
+</div>
+<div id="footer">
+&copy; 2010 Roy Sindre Norangshol (Rockj) for <a href="http://sc2.no">StarCraft Norge</a>.<br />
+Data provided by <a href="http://sc2ranks.com">SC2Ranks.com</a>. 
+SC2 Rankings is not endorsed by or affiliated with Blizzard Entertainment.
+</div> 
+</div>
+</body>
+</html>
