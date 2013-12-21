@@ -12,3 +12,11 @@ We (sc2.no admins in 2010) never got the ban lifted, hence I abondened the proje
 Yawn. 
 
 Lession from this project; don't code it like this :') harr harr. 
+
+Archives
+========
+
+It looked like this:
+
+http://web.archive.org/web/20100831110001/http://ladder.sc2.no/
+Sadly the graph layout isn't archived properly. 
